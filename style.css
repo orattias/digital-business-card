@@ -1,0 +1,645 @@
+/* ==========================================================================
+   Design tokens
+   ========================================================================== */
+
+:root {
+  /* Light theme (default) — warm paper, technical-drawing feel */
+  --bg: #efeae0;
+  --surface: #fbf9f4;
+  --ink: #201f1a;
+  --muted: #6f6c62;
+  --accent: #b65c2a;   /* filament copper */
+  --accent-2: #2f6e7a; /* blueprint teal */
+  --line: #c9c2b2;
+
+  --font-heading: 'Rubik', 'Heebo', sans-serif;
+  --font-body: 'Heebo', 'Rubik', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --content-width: 760px;
+  --radius-sm: 3px;
+}
+
+#theme-toggle:checked ~ .page {
+  /* Dark theme — blueprint sheet at night */
+  --bg: #14181a;
+  --surface: #1c2124;
+  --ink: #ece8de;
+  --muted: #9ba3a6;
+  --accent: #e2914f;
+  --accent-2: #74bcc9;
+  --line: #333a3d;
+}
+
+/* ==========================================================================
+   Reset
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+/* Hide the checkbox itself; the label is the visible control */
+.theme-toggle-input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body,
+  .theme-switch-thumb,
+  .theme-switch-track,
+  .project-card,
+  .chip,
+  .contact-value {
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  }
+}
+
+.page {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .page {
+    animation: page-in 0.5s ease both;
+  }
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   Theme switch
+   ========================================================================== */
+
+.theme-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  margin-bottom: 2.5rem;
+  user-select: none;
+}
+
+.theme-switch-track {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 3rem;
+  height: 1.5rem;
+  padding: 0.2rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+}
+
+.theme-switch-thumb {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+#theme-toggle:checked ~ .page .theme-switch-track {
+  justify-content: flex-end;
+}
+
+.theme-switch-caption {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.theme-switch:focus-within .theme-switch-track {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  padding: 1.5rem 1.5rem 2rem;
+  margin: 0 -1.5rem 0.5rem;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-position: center top;
+  opacity: 0.5;
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+  mask-image: linear-gradient(to bottom, black, transparent);
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-body {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.hero-frame {
+  position: relative;
+  flex: none;
+  width: 128px;
+  height: 128px;
+  padding: 10px;
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(15%);
+}
+
+.frame-tick {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: var(--accent);
+  border-style: solid;
+  border-width: 0;
+}
+
+.tick-tl {
+  top: 0;
+  right: 0;
+  border-top-width: 2px;
+  border-right-width: 2px;
+}
+
+.tick-br {
+  bottom: 0;
+  left: 0;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent-2);
+  margin-bottom: 0.5rem;
+}
+
+.hero-text h1 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  letter-spacing: -0.01em;
+}
+
+.role {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   Sections
+   ========================================================================== */
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 3rem 0;
+}
+
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.section-heading h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.section-index {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.about-text {
+  max-width: 62ch;
+  color: var(--ink);
+}
+
+/* ==========================================================================
+   Education timeline
+   ========================================================================== */
+
+.timeline {
+  border-inline-start: 2px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.timeline-item {
+  position: relative;
+  padding-inline-start: 1.25rem;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: -6px;
+  top: 0.4rem;
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.timeline-period {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.timeline-body h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.02rem;
+  margin-bottom: 0.3rem;
+}
+
+.timeline-body p {
+  color: var(--muted);
+  font-size: 0.92rem;
+  max-width: 56ch;
+}
+
+/* ==========================================================================
+   Skill bars
+   ========================================================================== */
+
+.skill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.skill-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+  font-size: 0.92rem;
+}
+
+.skill-bar {
+  height: 6px;
+  background: var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 999px;
+}
+
+.level-1 { width: 20%; }
+.level-2 { width: 40%; }
+.level-3 { width: 60%; }
+.level-4 { width: 80%; }
+.level-5 { width: 100%; }
+
+/* ==========================================================================
+   Skill chips
+   ========================================================================== */
+
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.chip {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  background: var(--surface);
+}
+
+/* ==========================================================================
+   Project cards — corner-bracket treatment instead of drop shadows
+   ========================================================================== */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.project-card {
+  position: relative;
+  padding: 1.5rem 1.25rem;
+  background: var(--surface);
+}
+
+.project-card::before,
+.project-card::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--line);
+  border-style: solid;
+  border-width: 0;
+}
+
+.project-card::before {
+  top: 0;
+  right: 0;
+  border-top-width: 2px;
+  border-right-width: 2px;
+}
+
+.project-card::after {
+  bottom: 0;
+  left: 0;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+}
+
+.project-card h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+}
+
+.project-card p {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.project-tags li {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-2);
+}
+
+.project-tags li::after {
+  content: " ·";
+  color: var(--muted);
+}
+
+.project-tags li:last-child::after {
+  content: "";
+}
+
+.project-details {
+  border-top: 1px solid var(--line);
+  padding-top: 0.75rem;
+}
+
+.project-details summary {
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--accent);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.project-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.project-details summary::before {
+  content: "+";
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--accent);
+  width: 1rem;
+  text-align: center;
+}
+
+.project-details[open] summary::before {
+  content: "\2212";
+}
+
+.details-content {
+  margin-top: 0.9rem;
+  padding-inline-start: 1.1rem;
+}
+
+.details-content ul {
+  list-style: disc;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.details-content li {
+  font-size: 0.88rem;
+  color: var(--ink);
+}
+
+.details-note {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.project-link:focus-visible,
+.contact-value:focus-visible,
+.theme-switch:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 3px;
+}
+
+.project-details summary:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   Contact list
+   ========================================================================== */
+
+.contact-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.contact-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+  width: 5.5rem;
+  flex: none;
+}
+
+.contact-value {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.contact-value:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.site-footer {
+  margin-top: 3.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 700px) {
+  .hero-body {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page {
+    padding: 2rem 1.25rem 3rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .contact-list li {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .contact-label {
+    width: auto;
+  }
+
+  .skill-label {
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+}
+
+@media (max-width: 340px) {
+  .hero-frame {
+    width: 96px;
+    height: 96px;
+  }
+
+  .hero-text h1 {
+    font-size: 1.9rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  :root {
+    --content-width: 860px;
+  }
+
+  .project-grid {
+    gap: 2rem;
+  }
+}

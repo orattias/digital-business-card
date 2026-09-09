@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>אור — כרטיס ביקור דיגיטלי</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;800&family=Heebo:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Hidden checkbox that drives the light/dark theme, no JS involved -->
+  <input type="checkbox" id="theme-toggle" class="theme-toggle-input">
+
+  <div class="page">
+
+    <header class="hero">
+      <label for="theme-toggle" class="theme-switch" aria-label="מעבר בין מצב בהיר למצב כהה">
+        <span class="theme-switch-track">
+          <span class="theme-switch-thumb"></span>
+        </span>
+        <span class="theme-switch-caption">מצב תצוגה</span>
+      </label>
+
+      <div class="hero-body">
+        <div class="hero-frame">
+          <img
+            class="profile-photo"
+            src="https://images.unsplash.com/photo-1521119989659-a83eee488004?q=80&w=600&auto=format&fit=crop"
+            alt="תמונת פרופיל">
+          <span class="frame-tick tick-tl"></span>
+          <span class="frame-tick tick-br"></span>
+        </div>
+
+        <div class="hero-text">
+          <p class="eyebrow">כרטיס ביקור דיגיטלי</p>
+          <h1>אור</h1>
+          <p class="role">סטודנט/ית למדעי המחשב ומתמטיקה &middot; מייסד/ת עסק להדפסה תלת־ממדית</p>
+        </div>
+      </div>
+    </header>
+
+    <main>
+
+      <section class="section" id="about">
+        <div class="section-heading">
+          <h2>קצת עליי</h2>
+          <span class="section-index">01</span>
+        </div>
+        <p class="about-text">
+          אני עוסק/ת בשני עולמות שנפגשים לעיתים קרובות יותר משנדמה: מדעי המחשב והדפסה תלת־ממדית.
+          במקביל ללימודי תואר במתמטיקה ובמדעי המחשב, אני מנהל/ת עסק עצמאי להדפסת תלת־ממד —
+          מפריטי עיצוב ועד חלקי חילוף ואבי־טיפוס לסטארטאפים מקומיים.
+          מה שמחבר ביני לבין שני התחומים הוא אותה שאלה בדיוק: איך הופכים רעיון מופשט לדבר־מה
+          מוחשי, מדויק ופונקציונלי — בין אם זה קוד שרץ ובין אם זה חלק שיוצא מהמדפסת.
+        </p>
+      </section>
+
+      <hr class="divider">
+
+      <section class="section" id="education">
+        <div class="section-heading">
+          <h2>השכלה ורקע</h2>
+          <span class="section-index">02</span>
+        </div>
+        <ul class="timeline">
+          <li class="timeline-item">
+            <span class="timeline-period">2023 &ndash; היום</span>
+            <div class="timeline-body">
+              <h3>תואר ראשון, מתמטיקה ומדעי המחשב</h3>
+              <p>לימודים משולבים בגישה תיאורטית ומעשית כאחד, לצד עבודה שוטפת על פרויקטי קוד עצמאיים.</p>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-period">2021 &ndash; היום</span>
+            <div class="timeline-body">
+              <h3>מייסד/ת, עסק להדפסה תלת־ממדית</h3>
+              <p>ניהול עצמאי של כל שלבי העבודה: קבלת קהל לקוחות, תכנון ומידול, הדפסה, ואיכות גימור.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <hr class="divider">
+
+      <section class="section" id="skills">
+        <div class="section-heading">
+          <h2>כישורים עיקריים</h2>
+          <span class="section-index">03</span>
+        </div>
+        <ul class="skill-list">
+          <li class="skill-item">
+            <div class="skill-label">
+              <span>פיתוח בפייתון</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill level-5"></div></div>
+          </li>
+          <li class="skill-item">
+            <div class="skill-label">
+              <span>מידול ועיצוב תלת־ממדי</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill level-4"></div></div>
+          </li>
+          <li class="skill-item">
+            <div class="skill-label">
+              <span>ניהול לקוחות ופרויקטים</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill level-4"></div></div>
+          </li>
+          <li class="skill-item">
+            <div class="skill-label">
+              <span>אלגוריתמים ומבני נתונים</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill level-3"></div></div>
+          </li>
+        </ul>
+      </section>
+
+      <hr class="divider">
+
+      <section class="section" id="stack">
+        <div class="section-heading">
+          <h2>כלים וטכנולוגיות</h2>
+          <span class="section-index">04</span>
+        </div>
+        <ul class="chip-list">
+          <li class="chip">Python</li>
+          <li class="chip">C</li>
+          <li class="chip">SQL</li>
+          <li class="chip">Fusion 360</li>
+          <li class="chip">SolidWorks</li>
+          <li class="chip">Git &amp; GitHub</li>
+          <li class="chip">HTML / CSS</li>
+          <li class="chip">Linux</li>
+        </ul>
+      </section>
+
+      <hr class="divider">
+
+      <section class="section" id="projects">
+        <div class="section-heading">
+          <h2>פרויקטים נבחרים</h2>
+          <span class="section-index">05</span>
+        </div>
+
+        <div class="project-grid">
+
+          <article class="project-card">
+            <h3>EzraBot</h3>
+            <p>
+              בוט טלגרם בפייתון למעקב אחר מניות, תזכורות אישיות וניהול משימות יומיומי —
+              נבנה כפרויקט צד לצורך למידה מעשית של עבודה מול APIs וניהול מצב לאורך זמן.
+            </p>
+            <ul class="project-tags">
+              <li>Python</li>
+              <li>Telegram API</li>
+            </ul>
+            <details class="project-details">
+              <summary>פרטים נוספים</summary>
+              <div class="details-content">
+                <ul>
+                  <li>שליפת נתוני מניות בזמן אמת והתראה כשמניה חוצה סף שהוגדר מראש</li>
+                  <li>ניהול רשימת משימות ותזכורות אישיות דרך שיחה טבעית בטלגרם</li>
+                  <li>שמירת מצב המשתמש בין הפעלות, כך שהבוט "זוכר" הגדרות קודמות</li>
+                </ul>
+                <p class="details-note">האתגר המרכזי: תזמון קריאות חוזרות ל־API בלי לחרוג ממגבלות הקצב.</p>
+              </div>
+            </details>
+          </article>
+
+          <article class="project-card">
+            <h3>עץ משפחה אינטראקטיבי</h3>
+            <p>
+              אפליקציית ווב להצגה ובנייה של עץ משפחה, שמאפשרת להוסיף קרובים, לשמור סיפורים
+              משפחתיים ולנווט בין דורות בצורה חזותית ונוחה.
+            </p>
+            <ul class="project-tags">
+              <li>Web App</li>
+              <li>Gemini</li>
+            </ul>
+            <details class="project-details">
+              <summary>פרטים נוספים</summary>
+              <div class="details-content">
+                <ul>
+                  <li>תרשים עץ דינמי שמתרחב ומצטמצם לפי מספר הדורות המוצגים</li>
+                  <li>כרטיס פרטים אישי לכל בן משפחה, כולל סיפור קצר ותמונה</li>
+                  <li>נבנה תוך שימוש בכלי AI Studio לצורך אבטיפוס מהיר של הממשק</li>
+                </ul>
+                <p class="details-note">האתגר המרכזי: שמירה על תצוגה ברורה גם כשהעץ מתרחב לעשרות בני משפחה.</p>
+              </div>
+            </details>
+          </article>
+
+          <article class="project-card">
+            <h3>מערכת הזמנות להדפסת תלת־ממד</h3>
+            <p>
+              תהליך עבודה מסודר לניהול הזמנות בעסק ההדפסה שלי — החל מקבלת בקשת הדפסה,
+              דרך תמחור ותכנון תור המדפסות, ועד מסירה ללקוח.
+            </p>
+            <ul class="project-tags">
+              <li>3D Printing</li>
+              <li>Automation</li>
+            </ul>
+            <details class="project-details">
+              <summary>פרטים נוספים</summary>
+              <div class="details-content">
+                <ul>
+                  <li>תמחור אוטומטי לפי משקל חומר, זמן הדפסה משוער ומורכבות המודל</li>
+                  <li>תור עבודה שמסדר הדפסות לפי זמינות המדפסות ודחיפות ההזמנה</li>
+                  <li>מעקב סטטוס שמאפשר ללקוח לדעת באיזה שלב ההזמנה שלו נמצאת</li>
+                </ul>
+                <p class="details-note">האתגר המרכזי: איזון בין ניצול יעיל של המדפסות לבין זמני אספקה סבירים.</p>
+              </div>
+            </details>
+          </article>
+
+        </div>
+      </section>
+
+      <hr class="divider">
+
+      <section class="section" id="contact">
+        <div class="section-heading">
+          <h2>יצירת קשר</h2>
+          <span class="section-index">06</span>
+        </div>
+
+        <ul class="contact-list">
+          <li>
+            <span class="contact-label">github</span>
+            <a class="contact-value" href="https://github.com/example-or" target="_blank" rel="noopener">github.com/example-or</a>
+          </li>
+          <li>
+            <span class="contact-label">linkedin</span>
+            <a class="contact-value" href="https://linkedin.com/in/example-or" target="_blank" rel="noopener">linkedin.com/in/example-or</a>
+          </li>
+          <li>
+            <span class="contact-label">אימייל</span>
+            <a class="contact-value" href="mailto:or@example.com">orש.com</a>
+          </li>
+          <li>
+            <span class="contact-label">טלפון</span>
+            <a class="contact-value" href="tel:+972500000000">052-359-8282</a>
+          </li>
+        </ul>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+     \ֿ // <!--- <p>נבנה ב־HTML ו־CSS בלבד, ללא JavaScript.</p>--->
+    </footer>
+
+  </div>
+</body>
+</html>
