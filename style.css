@@ -20,7 +20,7 @@
   --radius-sm: 3px;
 }
 
-#theme-toggle:checked ~ .page {
+html:has(#theme-toggle:checked) {
   /* Dark theme — blueprint sheet at night */
   --bg: #14181a;
   --surface: #1c2124;
@@ -86,6 +86,7 @@ body {
 
 @media (prefers-reduced-motion: no-preference) {
   body,
+  .page,
   .theme-switch-thumb,
   .theme-switch-track,
   .project-card,
@@ -215,8 +216,9 @@ body {
 .profile-photo {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  filter: grayscale(15%);
+  display: block;
+  border-radius: 6px;
+  border: 1px solid var(--line);
 }
 
 .frame-tick {
@@ -401,12 +403,55 @@ body {
 }
 
 /* ==========================================================================
+   Window frame — makes the projects area its own distinct panel
+   ========================================================================== */
+
+.window-frame {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.window-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.window-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.dot-red { background: #e0605a; }
+.dot-yellow { background: #e0b04f; }
+.dot-green { background: #6cb56a; }
+
+.window-titlebar-label {
+  margin-inline-start: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.window-body {
+  padding: 1.5rem;
+  background: var(--bg);
+}
+
+/* ==========================================================================
    Project cards — corner-bracket treatment instead of drop shadows
    ========================================================================== */
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
 
@@ -598,6 +643,10 @@ body {
     gap: 1.25rem;
   }
 
+  .window-body {
+    padding: 1rem;
+  }
+
   .project-grid {
     grid-template-columns: 1fr;
   }
@@ -641,5 +690,20 @@ body {
 
   .project-grid {
     gap: 2rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --content-width: 980px;
+  }
+
+  .page {
+    padding-top: 3.5rem;
+  }
+
+  .about-text,
+  .timeline-body p {
+    font-size: 1.05rem;
   }
 }
