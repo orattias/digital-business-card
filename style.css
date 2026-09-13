@@ -546,7 +546,6 @@ body {
 .contact-list li {
   display: flex;
   align-items: baseline;
-  justify-content: flex-end;
   gap: 1rem;
   padding: 0.75rem 0;
   border-bottom: 1px solid var(--line);
