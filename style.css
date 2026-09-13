@@ -1,15 +1,10 @@
-/* ==========================================================================
-   Design tokens
-   ========================================================================== */
-
 :root {
-  /* Light theme (default) — warm paper, technical-drawing feel */
   --bg: #efeae0;
   --surface: #fbf9f4;
   --ink: #201f1a;
   --muted: #6f6c62;
-  --accent: #b65c2a;   /* filament copper */
-  --accent-2: #2f6e7a; /* blueprint teal */
+  --accent: #b65c2a;
+  --accent-2: #2f6e7a;
   --line: #c9c2b2;
 
   --font-heading: 'Rubik', 'Heebo', sans-serif;
@@ -21,7 +16,6 @@
 }
 
 html:has(#theme-toggle:checked) {
-  /* Dark theme — blueprint sheet at night */
   --bg: #14181a;
   --surface: #1c2124;
   --ink: #ece8de;
@@ -30,10 +24,6 @@ html:has(#theme-toggle:checked) {
   --accent-2: #74bcc9;
   --line: #333a3d;
 }
-
-/* ==========================================================================
-   Reset
-   ========================================================================== */
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -63,7 +53,6 @@ h1, h2, h3, p {
   margin: 0;
 }
 
-/* Hide the checkbox itself; the label is the visible control */
 .theme-toggle-input {
   position: absolute;
   opacity: 0;
@@ -71,10 +60,6 @@ h1, h2, h3, p {
   height: 1px;
   pointer-events: none;
 }
-
-/* ==========================================================================
-   Base
-   ========================================================================== */
 
 body {
   background: var(--bg);
@@ -122,10 +107,6 @@ body {
   }
 }
 
-/* ==========================================================================
-   Theme switch
-   ========================================================================== */
-
 .theme-switch {
   display: inline-flex;
   align-items: center;
@@ -168,10 +149,6 @@ body {
   outline: 2px solid var(--accent-2);
   outline-offset: 2px;
 }
-
-/* ==========================================================================
-   Hero
-   ========================================================================== */
 
 .hero {
   position: relative;
@@ -264,10 +241,6 @@ body {
   margin-top: 0.5rem;
 }
 
-/* ==========================================================================
-   Sections
-   ========================================================================== */
-
 .divider {
   border: none;
   border-top: 1px solid var(--line);
@@ -297,10 +270,6 @@ body {
   max-width: 62ch;
   color: var(--ink);
 }
-
-/* ==========================================================================
-   Education timeline
-   ========================================================================== */
 
 .timeline {
   border-inline-start: 2px solid var(--line);
@@ -346,10 +315,6 @@ body {
   max-width: 56ch;
 }
 
-/* ==========================================================================
-   Skill bars
-   ========================================================================== */
-
 .skill-list {
   display: flex;
   flex-direction: column;
@@ -382,10 +347,6 @@ body {
 .level-4 { width: 80%; }
 .level-5 { width: 100%; }
 
-/* ==========================================================================
-   Skill chips
-   ========================================================================== */
-
 .chip-list {
   display: flex;
   flex-wrap: wrap;
@@ -401,10 +362,6 @@ body {
   color: var(--ink);
   background: var(--surface);
 }
-
-/* ==========================================================================
-   Window frame — makes the projects area its own distinct panel
-   ========================================================================== */
 
 .window-frame {
   border: 1px solid var(--line);
@@ -444,10 +401,6 @@ body {
   padding: 1.5rem;
   background: var(--bg);
 }
-
-/* ==========================================================================
-   Project cards — corner-bracket treatment instead of drop shadows
-   ========================================================================== */
 
 .project-grid {
   display: grid;
@@ -589,16 +542,13 @@ body {
   outline-offset: 3px;
 }
 
-/* ==========================================================================
-   Contact list
-   ========================================================================== */
-
 .contact-list li {
   display: flex;
   align-items: baseline;
   gap: 1rem;
   padding: 0.75rem 0;
   border-bottom: 1px solid var(--line);
+  min-width: 0;
 }
 
 .contact-label {
@@ -613,16 +563,15 @@ body {
   color: var(--ink);
   text-decoration: none;
   border-bottom: 1px solid transparent;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .contact-value:hover {
   color: var(--accent);
   border-bottom-color: var(--accent);
 }
-
-/* ==========================================================================
-   Footer
-   ========================================================================== */
 
 .site-footer {
   margin-top: 3.5rem;
@@ -631,10 +580,6 @@ body {
   color: var(--muted);
   text-align: center;
 }
-
-/* ==========================================================================
-   Responsive
-   ========================================================================== */
 
 @media (max-width: 700px) {
   .hero-body {
@@ -656,7 +601,7 @@ body {
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 480px) {
   .contact-list li {
     flex-direction: column;
     gap: 0.25rem;
