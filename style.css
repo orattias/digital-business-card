@@ -1,10 +1,11 @@
 :root {
+  
   --bg: #efeae0;
   --surface: #fbf9f4;
   --ink: #201f1a;
   --muted: #6f6c62;
-  --accent: #b65c2a;
-  --accent-2: #2f6e7a;
+  --accent: #b65c2a;   
+  --accent-2: #2f6e7a; 
   --line: #c9c2b2;
 
   --font-heading: 'Rubik', 'Heebo', sans-serif;
@@ -16,6 +17,7 @@
 }
 
 html:has(#theme-toggle:checked) {
+  
   --bg: #14181a;
   --surface: #1c2124;
   --ink: #ece8de;
@@ -364,45 +366,6 @@ body {
   background: var(--surface);
 }
 
-.window-frame {
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  overflow: hidden;
-  background: var(--surface);
-}
-
-.window-titlebar {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.65rem 1rem;
-  background: var(--bg);
-  border-bottom: 1px solid var(--line);
-}
-
-.window-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  flex: none;
-}
-
-.dot-red { background: #e0605a; }
-.dot-yellow { background: #e0b04f; }
-.dot-green { background: #6cb56a; }
-
-.window-titlebar-label {
-  margin-inline-start: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: var(--muted);
-}
-
-.window-body {
-  padding: 1.5rem;
-  background: var(--bg);
-}
-
 .project-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -550,7 +513,6 @@ body {
   padding: 0.75rem 0;
   border-bottom: 1px solid var(--line);
   min-width: 0;
-  text-align: right;
 }
 
 .contact-label {
@@ -590,10 +552,6 @@ body {
     flex-direction: column;
     align-items: flex-start;
     gap: 1.25rem;
-  }
-
-  .window-body {
-    padding: 1rem;
   }
 
   .project-grid {
